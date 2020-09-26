@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+img {
+  width: 100%;
+  font-size: 0;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  font-family: $heading-font;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+}
+body {
+  font-family: $body-font;
+}
+
+// text-center
+.text-center {
+  text-align: center;
+}
