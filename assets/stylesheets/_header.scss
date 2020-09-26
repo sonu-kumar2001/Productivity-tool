@@ -1,0 +1,13 @@
+header {
+    background-color: $tertiary-color;
+    padding: 1rem;
+    .logo {
+        font-size: 2rem;
+    }
+}
+nav a {
+    margin: 0 0.5rem;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
