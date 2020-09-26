@@ -1,8 +1,9 @@
 .toDo {
     margin-top: 2rem;
-    background-color: yellow;
+    background-color: $primary-color;
     padding: 3rem 1rem 2rem 1rem;
     border-radius: 25px;
+    box-shadow: 16px 22px 49px -1px rgba(0,0,0,0.47);
     .todo-heading {
         margin-bottom: 2rem;
     }
@@ -15,10 +16,10 @@
         border-radius: 25px;
         margin: 0 0.5rem;
     }
-    input[name="task-hr"] {
+    input[name="hour"] {
         width: 20%;
     }
-    input[name="task-min"] {
+    input[name="min"] {
         width: 20%;
     }
     
@@ -50,5 +51,10 @@
         border: 1px solid $primary-color;
         border-radius: 25px;
         margin: 0 0.5rem;
+    }
+}
+form {
+    button {
+        display: none;
     }
 }

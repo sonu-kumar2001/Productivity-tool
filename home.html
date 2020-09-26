@@ -20,27 +20,32 @@
     <main>
         <section class="home">
             <div class="container  flex-between">
-    
                     <div class="tree">
                         <h2>TO BE ADDED</h2>
                     </div>
                     <div class="toDo">
                         <h2 class="todo-heading"> To Do List</h2>
-                        <form >
+                        <form>
                             <input 
                             type="text" 
-                            name="task-name"
+                            name="name"
                             placeholder="Task Name">
         
                             <input 
-                            type="text"
-                            name="task-hr"
+                            type="number"
+                            name="hour"
+                            min="0"
+                            max="24"
                             placeholder="Time in Hour">
         
                             <input 
-                            type="text"
-                            name="task-min"
+                            type="number"
+                            name="min"
+                            min="0"
+                            max="60"
                             placeholder="Time in Mins">
+
+                            <button type="submit"></button>
                         </form>
                         <div class="root">
                             <ul>
@@ -97,5 +102,7 @@
             </div>
         </section>
     </main>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
