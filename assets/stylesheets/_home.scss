@@ -1,0 +1,54 @@
+.toDo {
+    margin-top: 2rem;
+    background-color: yellow;
+    padding: 3rem 1rem 2rem 1rem;
+    border-radius: 25px;
+    .todo-heading {
+        margin-bottom: 2rem;
+    }
+    input {
+        background-color: whitesmoke;
+        outline: none;
+        border: 1px solid $primary-color;
+        width: 40%;
+        padding: 0.5rem;
+        border-radius: 25px;
+        margin: 0 0.5rem;
+    }
+    input[name="task-hr"] {
+        width: 20%;
+    }
+    input[name="task-min"] {
+        width: 20%;
+    }
+    
+}
+.root {
+    padding: 1rem;
+    .taskTime {
+        text-align: right;
+    }
+    .Bttn {
+        margin-left: 2rem;
+        cursor: pointer;
+    }
+    .play {
+        margin-left: 12rem;
+    }
+    li {
+        margin: 1rem 0;
+        background-color: whitesmoke;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+    }
+}
+.controls {
+    button {
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid $primary-color;
+        border-radius: 25px;
+        margin: 0 0.5rem;
+    }
+}

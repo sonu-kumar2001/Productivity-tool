@@ -1,7 +1,12 @@
+body {
+    background-color: #E6E7EE;
+    font-family: $body-font;
+    color: $primary-color;
+    text-align: center;
+}
 html {
     font-size: 16px;
 }
-  
 h1 {
     font-size: 2rem;
 }

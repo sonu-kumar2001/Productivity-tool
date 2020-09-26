@@ -133,6 +133,13 @@ table {
   border-spacing: 0;
 }
 
+body {
+  background-color: #E6E7EE;
+  font-family: "Rubik", sans-serif;
+  color: #231F20;
+  text-align: center;
+}
+
 html {
   font-size: 16px;
 }
@@ -323,5 +330,92 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.flex-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header {
+  background-color: #F9A620;
+  padding: 1rem;
+}
+
+header .logo {
+  font-size: 2rem;
+}
+
+nav a {
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.toDo {
+  margin-top: 2rem;
+  background-color: yellow;
+  padding: 3rem 1rem 2rem 1rem;
+  border-radius: 25px;
+}
+
+.toDo .todo-heading {
+  margin-bottom: 2rem;
+}
+
+.toDo input {
+  background-color: whitesmoke;
+  outline: none;
+  border: 1px solid #231F20;
+  width: 40%;
+  padding: 0.5rem;
+  border-radius: 25px;
+  margin: 0 0.5rem;
+}
+
+.toDo input[name="task-hr"] {
+  width: 20%;
+}
+
+.toDo input[name="task-min"] {
+  width: 20%;
+}
+
+.root {
+  padding: 1rem;
+}
+
+.root .taskTime {
+  text-align: right;
+}
+
+.root .Bttn {
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.root .play {
+  margin-left: 12rem;
+}
+
+.root li {
+  margin: 1rem 0;
+  background-color: whitesmoke;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+}
+
+.controls button {
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #231F20;
+  border-radius: 25px;
+  margin: 0 0.5rem;
 }
 /*# sourceMappingURL=main.css.map */
