@@ -1,0 +1,52 @@
+.todo-box {
+    max-width: 700px;
+    margin: 180px auto;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 2px 2px 1px 2px rgb(158, 157, 157);
+    border-radius: 4px;
+}
+input[type = "text"] {
+    width: 30%;
+    padding: 20px 30px;
+    border: 2px solid red;
+    border-radius: 4px;
+    outline: none;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    margin: 18px auto;
+}
+p {
+    font-size: 30px;
+    text-transform: capitalize;
+    color: rgb(69, 69, 243);
+}
+span {
+    display: inline-block;
+    font-size: 25px;
+    color: tomato;
+    cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 20px;
+    text-transform: capitalize;
+    font-size: 22px;
+    background-color:  rgb(69, 69, 243);
+    color: white;
+    border-radius: 4px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.button {
+    margin-top: 22px;
+}
+ul input:checked ~ p {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
