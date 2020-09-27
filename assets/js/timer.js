@@ -1,8 +1,16 @@
+{/* 
+<input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p>
+<input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p>
+<input id="sec" type="number" max="60" min="0" value="0" class="time">
+</p> */}
+
+
+
 var start = document.getElementById('start');
 
-var h = document.getElementById("hour");
-var m = document.getElementById("minute");
-var s = document.getElementById("sec");
+var h = document.getElementById("hour"); // defined ->
+var m = document.getElementById("min"); // defined ->
+var s = document.getElementById("sec"); // add in script -> set
 
 var startTimer = null;
 
@@ -15,12 +23,12 @@ start.addEventListener('click', function(){
     startInterval();
 })
 
-start.addEventListener('dblclick', function(){
-    h.value = 0;
-    m.value = 0;
-    s.value = 0;
-    stopInterval()
-})
+// start.addEventListener('dblclick', function(){
+//     h.value = 0;
+//     m.value = 0;
+//     s.value = 0;
+//     stopInterval()
+// })
 
 function timer(){
     if(h.value == 0 && m.value == 0 && s.value == 0){
@@ -38,6 +46,6 @@ function timer(){
     }
     return;
 }
-function stopInterval() {
-    clearInterval(startTimer);
-}
+// function stopInterval() {
+//     clearInterval(startTimer);
+// }

@@ -177,6 +177,7 @@ p {
   height: 90vh;
   margin: 0 auto;
   padding: 0 1rem;
+  min-height: 90vh;
 }
 
 img {
@@ -367,6 +368,7 @@ nav a {
   box-shadow: 16px 22px 49px -1px rgba(0, 0, 0, 0.47);
   padding: 1rem 2.5rem 2.5rem 2.5rem;
   border-radius: 25px;
+  box-shadow: 16px 22px 49px -1px rgba(0, 0, 0, 0.47);
 }
 
 .toDo .todo-heading {
@@ -462,5 +464,9 @@ video {
   border: 1px solid #231F20;
   border-radius: 25px;
   margin: 0 0.5rem;
+}
+
+form button {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

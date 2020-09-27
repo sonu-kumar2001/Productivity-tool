@@ -42,63 +42,24 @@
                             placeholder="Task Name">
         
                             <input 
-                            type="text"
+                            type="number"
                             name="hour"
+                            min="0"
+                            max="24"
                             placeholder="Time in Hour">
         
                             <input 
-                            type="text"
+                            type="number"
                             name="min"
+                            min="0"
+                            max="60"
                             placeholder="Time in Mins">
+
+                            <button type="submit"></button>
                         </form>
                         <div class="root">
-                            <ul>
-                                <li class="flex-between">
-                                    <div class="info flex">
-                                        <p class="taskName">JAVASCRIPT</p>
-                                    </div>
-                                    <div class="button flex">
-                                        <p>
-                                            <p id="p1" class="semicolon"></p><input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p>
-                                            <input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p>
-                                            <input id="sec" type="number" max="60" min="0" value="0" class="time">
-                                        </p>
-                                        <button class="Bttn" id="start"><i class="far fa-play-circle"></i></button>
-                                        <!-- <p class="play Bttn" id="start"><i class="far fa-play-circle"></i></p> -->
-                                        <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
-                                    </div>
-                                </li>
-                                <li class="flex-between">
-                                    <div class="info flex">
-                                        <p class="taskName">NODE JS</p>
-                                    </div>
-                                    <div class="button flex">
-                                        <p class="taskTime"></p>
-                                        <p class="play Bttn"><i class="far fa-play-circle"></i></p>
-                                        <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
-                                    </div>
-                                </li>
-                                <li class="flex-between">
-                                    <div class="info flex">
-                                        <p class="taskName">REACT</p>
-                                    </div>
-                                    <div class="button flex">
-                                        <p class="taskTime"></p>
-                                        <p class="play Bttn"><i class="far fa-play-circle"></i></p>
-                                        <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
-                                    </div>
-                                </li>
-                                <!-- <li class="flex-between">
-                                    <div class="info flex">
-                                        <p class="taskName">MY SQL</p>
-                                    </div>
-                                    <div class="button flex">
-                                        <p class="taskTime">3:00:00</p>
-                                        <p class="play Bttn"><i class="far fa-play-circle"></i></p>
-                                        <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
-                                    </div>
-                                </li> -->
-                                
+                            <ul class="list-item">
+                              
                             </ul>
                         </div>
                         <div class="controls">
@@ -114,6 +75,9 @@
     <script src="assets/js/quote.js"></script>
     <!-- <script src="assets/js/video.js"></script> -->
     <script src="assets/js/timer.js"></script>
+
+    <script src="assets/js/script.js"></script>
+    
     <script src="https://kit.fontawesome.com/e844dd4312.js" crossorigin="anonymous"></script>
 </body>
 </html>
