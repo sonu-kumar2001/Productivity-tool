@@ -17,13 +17,21 @@ function inputHandler(event) {
         form.elements.name.value = '';
         form.elements.hour.value = '';
         form.elements.min.value = '';
-        createUi();
+        createUi(userInfo);
     }
 }
+// on click deleting the
+function deleteHandle(event) {
+    let id = event.target.dataset.id;
+    userInfo.splice(id,1);
+    createUi(userInfo);
+}
+// creating ui dynamically
 
-function createUi() {
+function createUi(arr) {
+    if(userInfo.length > 4) return
     ul.innerHTML = ''
-    userInfo.forEach(element => {
+    arr.forEach((element,index) => {
         let li = document.createElement('li');
         li.classList.add('flex-between');
         let div1 = document.createElement('div');
@@ -42,6 +50,9 @@ function createUi() {
         let p4 = document.createElement('p');
         p4.classList.add('close','Bttn');
         p4.innerHTML = `<i class="fas fa-times-circle"></i>`;
+        //added event listener on close icon
+        p4.addEventListener('click',deleteHandle);
+        p4.setAttribute("data-id", index);
 
        div1.append(p1);
        div2.append(p2,p3,p4);
@@ -50,5 +61,7 @@ function createUi() {
         root.append(ul);
     });
 }
-
+// event listener on input elements
 form.addEventListener('submit',inputHandler);
+
+createUi(userInfo);
