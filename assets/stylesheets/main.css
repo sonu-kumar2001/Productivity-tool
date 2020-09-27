@@ -466,7 +466,7 @@ video {
   margin: 0 0.5rem;
 }
 
-form button {
+form button, form input[name="second"] {
   display: none;
 }
 /*# sourceMappingURL=main.css.map */

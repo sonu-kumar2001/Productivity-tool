@@ -2,7 +2,11 @@ let todo = document.querySelector('.toDo');
 let form = document.querySelector('form');
 let ul = document.querySelector('.list-item');
 let root = document.querySelector('.root');
-let userInfo = [];
+let userInfo = [{hour: 1,
+    isDone: false,
+    min: 0,
+    name: "Sonu",
+    second: 0}];
 
 function inputHandler(event) {
     event.preventDefault();
@@ -11,6 +15,7 @@ function inputHandler(event) {
             name: form.elements.name.value,
             hour: +form.elements.hour.value,
             min: +form.elements.min.value,
+            second: +form.elements.second.value,
             isDone: false,
         }
         userInfo.push(todo);
@@ -26,8 +31,34 @@ function deleteHandle(event) {
     userInfo.splice(id,1);
     createUi(userInfo);
 }
-// creating ui dynamically
+// timer
 
+var startTimer = null;
+
+function timer(event,index){
+    if(userInfo[index].hour == 0 && userInfo[index].min == 0 && userInfo[index].second == 0){
+        userInfo[index].hour = 0;
+        userInfo[index].min = 0;
+        userInfo[index].second = 0;
+        userInfo[index].isDone = true;
+        clearInterval(startTimer);
+    } else if(userInfo[index].second != 0){
+        userInfo[index].second--;
+    } else if(userInfo[index].min != 0 && userInfo[index].second == 0){
+        userInfo[index].second = 59;
+        userInfo[index].min--;
+    } else if(userInfo[index].hour != 0 && userInfo[index].min == 0){
+        userInfo[index].min = 60;
+        userInfo[index].hour--;
+    }
+    event.innerText = `${userInfo[index].hour} : ${userInfo[index].min} : ${userInfo[index].second}`
+    ul.children[index].addEventListener('click', function() {
+        clearInterval(startTimer);
+    },{once:true});
+    return;
+}
+
+// creating ui dynamically
 function createUi(arr) {
     if(userInfo.length > 4) return
     ul.innerHTML = ''
@@ -42,11 +73,12 @@ function createUi(arr) {
         let div2 = document.createElement('div');
         div2.classList.add('button','flex');
         let p2 = document.createElement('p');
-        p2.innerText = `${element.hour} : ${element.min}`;
+        p2.innerText = `${element.hour} : ${element.min}: ${element.second}`;
         p2.classList.add('taskTime');
         let p3 = document.createElement('p');
         p3.classList.add('play','Bttn');
         p3.innerHTML = `<i class="far fa-play-circle"></i>`;
+        // adding event listener on play button
         let p4 = document.createElement('p');
         p4.classList.add('close','Bttn');
         p4.innerHTML = `<i class="fas fa-times-circle"></i>`;
@@ -59,6 +91,18 @@ function createUi(arr) {
        li.append(div1,div2);
        ul.append(li);
         root.append(ul);
+
+        li.addEventListener('click', function(event){
+            if(event.target.classList.contains('fa-play-circle')) {
+                function startInterval(){
+                    startTimer = setInterval(function() {
+                        timer(li.querySelector('.taskTime'),[...ul.children].indexOf(li));
+                    }, 1000);
+                }
+                startInterval();
+            }
+
+        },{once:true});
     });
 }
 // event listener on input elements
