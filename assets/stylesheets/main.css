@@ -1,0 +1,466 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background-color: #e6e7ee;
+  font-family: "Rubik", sans-serif;
+  color: #231F20;
+  text-align: center;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  height: 90vh;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+img {
+  width: 100%;
+  font-size: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.col-1 {
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+}
+
+.col-2 {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.col-3 {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.col-4 {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.col-5 {
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.col-6 {
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+}
+
+.col-7 {
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+}
+
+.col-8 {
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+}
+
+.col-9 {
+  -ms-grid-columns: (1fr)[9];
+      grid-template-columns: repeat(9, 1fr);
+}
+
+.col-10 {
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+}
+
+.col-11 {
+  -ms-grid-columns: (1fr)[11];
+      grid-template-columns: repeat(11, 1fr);
+}
+
+.col-12 {
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+}
+
+.col-gap-2 {
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+}
+
+.col-gap-2-5 {
+  -webkit-column-gap: 2.5rem;
+          column-gap: 2.5rem;
+}
+
+.grid-self-center {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header {
+  padding: 1rem;
+}
+
+header .logo-img {
+  top: 0;
+  width: 300px;
+  position: absolute;
+}
+
+nav a {
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.toDo {
+  min-width: 600px;
+  min-height: 500px;
+  background-color: #231F20;
+  -webkit-box-shadow: 16px 22px 49px -1px rgba(0, 0, 0, 0.47);
+  box-shadow: 16px 22px 49px -1px rgba(0, 0, 0, 0.47);
+  padding: 1rem 2.5rem 2.5rem 2.5rem;
+  border-radius: 25px;
+}
+
+.toDo .todo-heading {
+  margin: 1rem 0 3rem 0;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.toDo input {
+  background-color: whitesmoke;
+  outline: none;
+  border: 1px solid #231F20;
+  width: 14rem;
+  padding: 0.9rem 1rem;
+  border-radius: 25px;
+  margin: 0 0.5rem;
+}
+
+.toDo input[name="hour"] {
+  width: 8rem;
+}
+
+.toDo input[name="min"] {
+  width: 8rem;
+}
+
+video {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  z-index: -1;
+}
+
+.quote {
+  margin: -15rem 0 0 -10rem;
+  width: 30rem;
+}
+
+.quote .quote-text {
+  font-family: 'Cedarville Cursive', cursive;
+}
+
+.root {
+  padding: 1rem 0;
+  min-height: 250px;
+}
+
+.root .taskTime {
+  text-align: right;
+}
+
+.root .Bttn {
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.root .play {
+  margin-left: 12rem;
+}
+
+.root li {
+  font-weight: 600;
+  margin: 1.2rem 0;
+  background-color: whitesmoke;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  -webkit-box-shadow: inset 0.2rem 0.2rem 0.5rem #c9c9c6, inset -0.2rem -0.2rem 0.5rem #ffffffef;
+          box-shadow: inset 0.2rem 0.2rem 0.5rem #c9c9c6, inset -0.2rem -0.2rem 0.5rem #ffffffef;
+}
+
+.root i {
+  font-size: 1.5rem;
+}
+
+.root input[class="time"] {
+  background-color: whitesmoke;
+  outline: none;
+  border: none;
+  width: 2rem;
+  padding: 0.2rem 0 0.2rem 0;
+  font-size: 1rem;
+  border-radius: 25px;
+  margin: 0 0.5rem;
+}
+
+.controls button {
+  font-weight: 600;
+  padding: 0.75rem 1.7rem;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #231F20;
+  border-radius: 25px;
+  margin: 0 0.5rem;
+}
+/*# sourceMappingURL=main.css.map */

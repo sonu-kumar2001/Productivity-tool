@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productivity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:ital,wght@0,100;0,200;0,600;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/stylesheets/main.css">
 </head>
 <body>
     <header class="flex-between">
-        <a href="" class="logo">LOGO</a>
+        <a href="" class="logo">
+            <img src="assets/images/logo.png" alt="logo" class="logo-img">
+        </a>
         <nav>
             <ul>
                 <a href="">HOME</a>
@@ -21,13 +24,18 @@
         <section class="home">
             <div class="container  flex-between">
                     <div class="tree">
-                        <video src="assets/video/tree.mp4" autoplay>
+                        <video src="assets/video/tree.mp4" autoplay class="mp4" loop>
                         </video>
                         <div class="ground"></div>
                     </div>
+                    <div class="quote">
+                        <h2 class="quote-text">
+                            “Productivity is being able to do things that you were never able to do before.”
+                        </h2>
+                    </div>
                     <div class="toDo">
                         <h2 class="todo-heading"> To Do List</h2>
-                        <form >
+                        <form>
                             <input 
                             type="text" 
                             name="name"
@@ -50,8 +58,13 @@
                                         <p class="taskName">JAVASCRIPT</p>
                                     </div>
                                     <div class="button flex">
-                                        <p class="taskTime">3:00:00</p>
-                                        <p class="play Bttn"><i class="far fa-play-circle"></i></p>
+                                        <p>
+                                            <p id="p1" class="semicolon"></p><input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p>
+                                            <input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p>
+                                            <input id="sec" type="number" max="60" min="0" value="0" class="time">
+                                        </p>
+                                        <button class="Bttn" id="start"><i class="far fa-play-circle"></i></button>
+                                        <!-- <p class="play Bttn" id="start"><i class="far fa-play-circle"></i></p> -->
                                         <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
                                     </div>
                                 </li>
@@ -60,7 +73,7 @@
                                         <p class="taskName">NODE JS</p>
                                     </div>
                                     <div class="button flex">
-                                        <p class="taskTime">3:00:00</p>
+                                        <p class="taskTime"></p>
                                         <p class="play Bttn"><i class="far fa-play-circle"></i></p>
                                         <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
                                     </div>
@@ -70,12 +83,12 @@
                                         <p class="taskName">REACT</p>
                                     </div>
                                     <div class="button flex">
-                                        <p class="taskTime">3:00:00</p>
+                                        <p class="taskTime"></p>
                                         <p class="play Bttn"><i class="far fa-play-circle"></i></p>
                                         <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
                                     </div>
                                 </li>
-                                <li class="flex-between">
+                                <!-- <li class="flex-between">
                                     <div class="info flex">
                                         <p class="taskName">MY SQL</p>
                                     </div>
@@ -84,7 +97,7 @@
                                         <p class="play Bttn"><i class="far fa-play-circle"></i></p>
                                         <p class="close Bttn"><i class="fas fa-times-circle"></i></p>
                                     </div>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </div>
@@ -98,7 +111,9 @@
             </div>
         </section>
     </main>
-    
+    <script src="assets/js/quote.js"></script>
+    <!-- <script src="assets/js/video.js"></script> -->
+    <script src="assets/js/timer.js"></script>
     <script src="https://kit.fontawesome.com/e844dd4312.js" crossorigin="anonymous"></script>
 </body>
 </html>
