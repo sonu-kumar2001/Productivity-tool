@@ -78,7 +78,6 @@ function createUi(arr) {
         let p3 = document.createElement('p');
         p3.classList.add('play','Bttn');
         p3.innerHTML = `<i class="far fa-play-circle"></i>`;
-        // adding event listener on play button
         let p4 = document.createElement('p');
         p4.classList.add('close','Bttn');
         p4.innerHTML = `<i class="fas fa-times-circle"></i>`;
@@ -91,7 +90,7 @@ function createUi(arr) {
        li.append(div1,div2);
        ul.append(li);
         root.append(ul);
-
+         // adding event listener on play button
         li.addEventListener('click', function(event){
             if(event.target.classList.contains('fa-play-circle')) {
                 function startInterval(){
