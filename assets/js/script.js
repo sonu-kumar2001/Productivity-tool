@@ -2,7 +2,13 @@ let todo = document.querySelector('.toDo');
 let form = document.querySelector('form');
 let ul = document.querySelector('.list-item');
 let root = document.querySelector('.root');
-let userInfo = [];
+let userInfo = [{hour: 0,
+    isDone: false,
+    min: 0,
+    name: "Sonu",
+    second: 10,
+    clicked: 0,
+}];
 
 function inputHandler(event) {
     event.preventDefault();
@@ -13,6 +19,7 @@ function inputHandler(event) {
             min: +form.elements.min.value,
             second: +form.elements.second.value,
             isDone: false,
+            clicked: 0,
         }
         userInfo.push(todo);
         form.elements.name.value = '';
@@ -20,6 +27,7 @@ function inputHandler(event) {
         form.elements.min.value = '';
         createUi(userInfo);
     }
+    isTodo();
 }
 // on click deleting the
 function deleteHandle(event) {
@@ -29,7 +37,7 @@ function deleteHandle(event) {
 }
 // timer
 
-var startTimer = null;
+let startTimer = null;
 
 function timer(event,index){
     if(userInfo[index].hour == 0 && userInfo[index].min == 0 && userInfo[index].second == 0){
@@ -48,9 +56,7 @@ function timer(event,index){
         userInfo[index].hour--;
     }
     event.innerText = `${userInfo[index].hour} : ${userInfo[index].min} : ${userInfo[index].second}`
-    ul.children[index].addEventListener('click', function() {
-        clearInterval(startTimer);
-    },{once:true});
+    isTodo();
     return;
 }
 
@@ -89,18 +95,58 @@ function createUi(arr) {
          // adding event listener on play button
         li.addEventListener('click', function(event){
             if(event.target.classList.contains('fa-play-circle')) {
-                function startInterval(){
-                    startTimer = setInterval(function() {
-                        timer(li.querySelector('.taskTime'),[...ul.children].indexOf(li));
-                    }, 1000);
+                let index = [...ul.children].indexOf(li);
+                userInfo[index].clicked += 1;
+                if(userInfo[index].clicked % 2 != 0) {
+                    function startInterval(){
+                        startTimer = setInterval(function() {
+                            timer(li.querySelector('.taskTime'),[...ul.children].indexOf(li));
+                        }, 1000);
+                    }
+                    startInterval();
+                } else {
+                    clearInterval(startTimer);
                 }
-                startInterval();
+
             }
 
-        },{once:true});
+        });
     });
 }
 // event listener on input elements
 form.addEventListener('submit',inputHandler);
 
 createUi(userInfo);
+
+// working on button 
+{/* <button>Clear Completed</button> */}
+let control = document.querySelector('.controls');
+
+function clearButton() {
+    console.log('working');
+    let button = document.createElement('button');
+    button.innerText = 'Completed Clear'
+    control.append(button);
+    button.addEventListener('click',clear);
+}
+
+
+function clear(event) {
+    if(event.target.innerText == 'Completed Clear') {
+        [...ul.children].forEach((element,index) => {
+           if(userInfo[index].isDone) {
+            element.children[0].remove();
+            userInfo.splice(index,1);
+           }
+        });
+        createUi(userInfo);
+    }
+    isTodo();
+}
+function isTodo() {
+    control.innerHTML = '';
+    if(userInfo.every(e => e.isDone)) {
+        clearButton();
+    }
+}
+isTodo();
