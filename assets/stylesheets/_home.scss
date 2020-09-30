@@ -92,7 +92,7 @@ video {
     }
 }
 form {
-    button {
+    button,input[name = "second"] {
         display: none;
     }
 }
