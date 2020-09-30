@@ -6,43 +6,23 @@
     <title>Productivity</title>
     <link rel="stylesheet" href="assets/stylesheets/main.css">
 </head>
-<body>
+<body class="popup-body">
     <div class="popup">
-        <div class="toDo">
-            <h2 class="todo-heading"> To Do List</h2>
-            <form>
-                <input 
-                type="text" 
-                name="name"
-                placeholder="Task Name">
-    
-                <input 
-                type="number"
-                name="hour"
-                min="0"
-                max="24"
-                placeholder="Time in Hour" >
-    
-                <input 
-                type="number"
-                name="min"
-                min="0"
-                max="60"
-                placeholder="Time in Mins">
-    
-                <input type="number" name="second" >
-                <button type="submit"></button>
-            </form>
+        <div class="toDo toDo-popup">
+            <div class="flex-item display">
+                <h2 class="taskname">BREAK</h2>
+                <h2 class="tasktimer">5:00</h2>
+            </div>
             <div class="root">
                 <ul class="list-item">
-    
+                    <li>JAVA SCRIPT</li>
+                    <li>JAVA SCRIPT</li>
+                    <li>JAVA SCRIPT</li>
+                    <li>JAVA SCRIPT</li>
                 </ul>
             </div>
             <div class="controls">
-                <button>All</button>
-                <button>Pending</button>
-                <button>Completed</button>
-                <button>Clear Completed</button>
+                <button>HOME</button>
             </div>
         </div>
     </div>
