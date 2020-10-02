@@ -83,14 +83,14 @@ let pomodoroObj = {
 function pomodoroTimer() {
   // taskName.innerText = 'START';
 
-  m = 1;
+  m = 25;
   s = 60;
   decM();
   pomodoroStart = setInterval(decS, 1000);
 }
 function decM() {
 if (m < 1) {
-    m = 1;
+    m = 5;
     taskName.innerText = 'TAKE BREAK!';
     }
     m--;
