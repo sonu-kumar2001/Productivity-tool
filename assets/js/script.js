@@ -2,6 +2,9 @@ let todo = document.querySelector('.toDo');
 let form = document.querySelector('form');
 let ul = document.querySelector('.list-item');
 let root = document.querySelector('.root');
+// popup
+let popupLi = document.querySelector('.popup-list-item');
+
 let userInfo = [{hour: 0,
     isDone: false,
     min: 0,
@@ -91,7 +94,6 @@ function createUi(arr) {
        div2.append(p2,p3,p4);
        li.append(div1,div2);
        ul.append(li);
-        root.append(ul);
          // adding event listener on play button
         li.addEventListener('click', function(event){
             if(event.target.classList.contains('fa-play-circle')) {
