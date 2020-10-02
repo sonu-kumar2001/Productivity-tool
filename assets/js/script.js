@@ -7,8 +7,15 @@ let taskTimer = document.querySelector('.tasktimer');
 let min = document.querySelector('.min');
 let sec = document.querySelector('.sec');
 let display = document.querySelector('.display');
-console.log(display);
+
 let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
+let pomodoroStart = null;
+let pomodoroObj = {
+    workM: null,
+    workS: null,
+    breakM: null,
+    breakS: null,
+};
 
 function inputHandler(event) {
   event.preventDefault();
@@ -48,6 +55,7 @@ function deleteHandle(event) {
 let startTimer = null;
 
 function timer(event, index) {
+  console.log(event,index,"from timer");
   if (
     userInfo[index].hour == 0 &&
     userInfo[index].min == 0 &&
@@ -57,6 +65,11 @@ function timer(event, index) {
     userInfo[index].min = 0;
     userInfo[index].second = 0;
     userInfo[index].isDone = true;
+    ul.children[index].style.backgroundColor = 'tomato';
+    min.innerText = 00;
+    sec.innerText = 00;
+    taskName.innerText = `READY!`;
+    clearInterval(pomodoroStart);
     clearInterval(startTimer);
   } else if (userInfo[index].second != 0) {
     userInfo[index].second--;
@@ -73,13 +86,6 @@ function timer(event, index) {
   isTodo();
   return;
 }
-let pomodoroStart = null;
-let pomodoroObj = {
-    workM: null,
-    workS: null,
-    breakM: null,
-    breakS: null,
-}; 
 function pomodoroTimer() {
   // taskName.innerText = 'START';
 
@@ -114,9 +120,6 @@ function decS() {
     pomodoroObj.workM = m;
     pomodoroObj.workS = s;
     localStorage.setItem("pomodoroObj",JSON.stringify(pomodoroObj));
-    console.log(pomodoroObj);
-    console.log(m,s);
-    
 }
 setInterval(pomodoroTimer, 1800000);
 
