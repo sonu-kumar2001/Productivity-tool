@@ -7,8 +7,7 @@ let taskTimer = document.querySelector('.tasktimer');
 let min = document.querySelector('.min');
 let sec = document.querySelector('.sec');
 let display = document.querySelector('.display');
-console.log(display);
-let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
+let userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
 
 function inputHandler(event) {
   event.preventDefault();
@@ -28,7 +27,7 @@ function inputHandler(event) {
     form.elements.name.value = '';
     form.elements.hour.value = '';
     form.elements.min.value = '';
-    localStorage.setItem("userInfo",JSON.stringify(userInfo));
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
     createUi(userInfo);
   }
   isTodo();
@@ -39,7 +38,7 @@ function inputHandler(event) {
 function deleteHandle(event) {
   let id = event.target.dataset.id;
   userInfo.splice(id, 1);
-  localStorage.setItem("userInfo",JSON.stringify(userInfo));
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
   createUi(userInfo);
 }
 
@@ -61,63 +60,66 @@ function timer(event, index) {
   } else if (userInfo[index].second != 0) {
     userInfo[index].second--;
   } else if (userInfo[index].min != 0 && userInfo[index].second == 0) {
-    // pomodoroTimer();
     userInfo[index].second = 59;
     userInfo[index].min--;
   } else if (userInfo[index].hour != 0 && userInfo[index].min == 0) {
     userInfo[index].min = 60;
     userInfo[index].hour--;
   }
-  localStorage.setItem("userInfo",JSON.stringify(userInfo));
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
   event.innerText = `${userInfo[index].hour} : ${userInfo[index].min} : ${userInfo[index].second}`;
   isTodo();
   return;
 }
-let pomodoroStart = null;
-let pomodoroObj = {
-    workM: null,
-    workS: null,
-    breakM: null,
-    breakS: null,
-}; 
-function pomodoroTimer() {
-  // taskName.innerText = 'START';
+let pomodoroStart = null; // WHAT'S THIS?
 
-  m = 1;
-  s = 60;
+//ASK?
+
+let pomodoroObj = {
+  workM: null,
+  workS: null,
+  breakM: null,
+  breakS: null,
+};
+
+function pomodoroTimer() {
+  if()
+  m = 25;
+  s = 61;
   decM();
   pomodoroStart = setInterval(decS, 1000);
 }
+
 function decM() {
-if (m < 1) {
+  if (m < 1) {
     m = 1;
     taskName.innerText = 'TAKE BREAK!';
-    }
-    m--;
-    min.innerText = m < 10 ? '0' + m : m;
-    pomodoroObj.breakM = m;
-    pomodoroObj.breakS = s;
-    localStorage.setItem("pomodoroObj",JSON.stringify(pomodoroObj));
-    console.log(pomodoroObj);
-    console.log(m,s);
+  }
+  m--;
+  min.innerText = m < 10 ? '0' + m : m;
+  pomodoroObj.breakM = m;
+  pomodoroObj.breakS = s;
+  localStorage.setItem('pomodoroObj', JSON.stringify(pomodoroObj));
+  console.log(pomodoroObj);
+  console.log(m, s);
 }
 
 function decS() {
-    if (s <= 1) {
-        s = 60;
-    }
-    if (s == '01') {
-        decM();
-    }
-    s--;
-    sec.innerText = s < 10 ? '0' + s : s;
-    pomodoroObj.workM = m;
-    pomodoroObj.workS = s;
-    localStorage.setItem("pomodoroObj",JSON.stringify(pomodoroObj));
-    console.log(pomodoroObj);
-    console.log(m,s);
-    
+  if (s <= 1) {
+    s = 60;
+  }
+  if (s == '01') {
+    decM();
+  }
+  s--;
+  sec.innerText = s < 10 ? '0' + s : s;
+  pomodoroObj.workM = m;
+  pomodoroObj.workS = s;
+  localStorage.setItem('pomodoroObj', JSON.stringify(pomodoroObj));
+  console.log(pomodoroObj);
+  console.log(m, s);
 }
+
 setInterval(pomodoroTimer, 1800000);
 
 // creating ui dynamically
@@ -156,15 +158,16 @@ function createUi(arr) {
     li.addEventListener('click', function (event) {
       taskName.innerText = p1.innerText;
       if (event.target.classList.contains('fa-play-circle')) {
-        let liPlaying = document.querySelectorAll(".playing");
-        if (liPlaying){
-            [...liPlaying].forEach((e) => {
-                e.classList.remove("playing");
-                clearInterval(startTimer);
-                clearInterval(pomodoroStart);
-            }
-            )}
-        event.currentTarget.classList.add("playing");
+        console.log(userInfo);
+        let liPlaying = document.querySelectorAll('.playing');
+        if (liPlaying) {
+          [...liPlaying].forEach((e) => {
+            e.classList.remove('playing');
+            clearInterval(startTimer);
+            clearInterval(pomodoroStart);
+          });
+        }
+        event.currentTarget.classList.add('playing');
         let index = [...ul.children].indexOf(li);
         userInfo[index].clicked += 1;
         if (userInfo[index].clicked % 2 != 0) {
@@ -213,7 +216,7 @@ function clear(event) {
       if (userInfo[index].isDone) {
         element.children[0].remove();
         userInfo.splice(index, 1);
-        localStorage.setItem("userInfo",JSON.stringify(userInfo));
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
       }
     });
     createUi(userInfo);
@@ -225,7 +228,7 @@ function isTodo() {
   control.innerHTML = '';
   if (userInfo.every((e) => e.isDone == true)) {
     clearButton();
-  } 
+  }
 }
 
 isTodo();
