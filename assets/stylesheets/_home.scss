@@ -2,13 +2,22 @@
     min-width: 600px;
     min-height: 500px;
     background-color: $primary-color;
+    //     background: 
+    // repeating-radial-gradient(circle at bottom left, $colors),
+    // repeating-radial-gradient(circle at bottom right, $colors);
+    // background-blend-mode: overlay;
     -webkit-box-shadow: 16px 22px 49px -1px rgba(0,0,0,0.47);
     -moz-box-shadow: 16px 22px 49px -1px rgba(0,0,0,0.47);
     box-shadow: 16px 22px 49px -1px rgba(0,0,0,0.47);
     padding: 1rem 2.5rem 2.5rem 2.5rem;
     border-radius: 25px;
     box-shadow: 16px 22px 49px -1px rgba(0,0,0,0.47);
-    
+    .links {
+        margin: 1.2rem 0;
+    }
+    .logo-img {
+        z-index: -1;
+    }
     .todo-heading {
         margin: 1rem 0 3rem 0;
         color: whitesmoke;
@@ -41,6 +50,7 @@ video {
 .quote {
     margin: -15rem 0 0 -10rem;
     width: 30rem;
+    z-index: -1;
     .quote-text{
         font-family: 'Cedarville Cursive', cursive;
     }

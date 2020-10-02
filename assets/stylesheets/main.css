@@ -360,7 +360,7 @@ nav a {
   font-weight: 600;
 }
 
-.toDo, .toDo-popup {
+.toDo {
   min-width: 600px;
   min-height: 500px;
   background-color: #231F20;
@@ -371,14 +371,22 @@ nav a {
   box-shadow: 16px 22px 49px -1px rgba(0, 0, 0, 0.47);
 }
 
-.toDo .todo-heading, .toDo-popup .todo-heading {
+.toDo .links {
+  margin: 1.2rem 0;
+}
+
+.toDo .logo-img {
+  z-index: -1;
+}
+
+.toDo .todo-heading {
   margin: 1rem 0 3rem 0;
   color: whitesmoke;
   font-weight: 600;
   font-size: 2rem;
 }
 
-.toDo input, .toDo-popup input {
+.toDo input {
   background-color: whitesmoke;
   outline: none;
   border: 1px solid #231F20;
@@ -388,11 +396,11 @@ nav a {
   margin: 0 0.5rem;
 }
 
-.toDo input[name="hour"], .toDo-popup input[name="hour"] {
+.toDo input[name="hour"] {
   width: 8rem;
 }
 
-.toDo input[name="min"], .toDo-popup input[name="min"] {
+.toDo input[name="min"] {
   width: 8rem;
 }
 
@@ -407,6 +415,7 @@ video {
 .quote {
   margin: -15rem 0 0 -10rem;
   width: 30rem;
+  z-index: -1;
 }
 
 .quote .quote-text {
@@ -468,47 +477,5 @@ video {
 
 form button, form input[name="second"] {
   display: none;
-}
-
-.popup {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.toDo-popup {
-  min-width: 100vh;
-  border-radius: 0;
-  padding: 1rem 2.5rem 0rem 2.5rem;
-}
-
-.popup-body {
-  background-color: #231F20;
-}
-
-.tasktimer,
-.taskname {
-  color: whitesmoke;
-  font-weight: 600;
-  font-size: 2rem;
-}
-
-.display {
-  background-color: #231F20;
-  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem black, -0.1rem -0.1rem 0.1rem black, inset 1rem 1rem 1rem #231F20;
-          box-shadow: 0.5rem 0.5rem 0.5rem black, -0.1rem -0.1rem 0.1rem black, inset 1rem 1rem 1rem #231F20;
-  padding: 1rem 0;
-  border-radius: 25px;
-}
-
-.popup-root {
-  padding: 1rem 0;
-  min-height: 250px;
 }
 /*# sourceMappingURL=main.css.map */

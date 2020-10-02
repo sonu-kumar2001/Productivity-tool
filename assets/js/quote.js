@@ -89,6 +89,6 @@ function doNext() {
     let entry = quoteArr[i];
     quote.textContent = (entry);
     i++;
-    setTimeout(doNext, 10000);
+    setTimeout(doNext, 100);
 }
 doNext();
