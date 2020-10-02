@@ -8,16 +8,7 @@ let min = document.querySelector('.min');
 let sec = document.querySelector('.sec');
 let display = document.querySelector('.display');
 console.log(display);
-let userInfo = [
-  {
-    hour: 01,
-    isDone: false,
-    min: 00,
-    name: 'JavaScript',
-    second: 00,
-    clicked: 0,
-  },
-];
+let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
 
 function inputHandler(event) {
   event.preventDefault();
@@ -37,6 +28,7 @@ function inputHandler(event) {
     form.elements.name.value = '';
     form.elements.hour.value = '';
     form.elements.min.value = '';
+    localStorage.setItem("userInfo",JSON.stringify(userInfo));
     createUi(userInfo);
   }
   isTodo();
@@ -47,6 +39,7 @@ function inputHandler(event) {
 function deleteHandle(event) {
   let id = event.target.dataset.id;
   userInfo.splice(id, 1);
+  localStorage.setItem("userInfo",JSON.stringify(userInfo));
   createUi(userInfo);
 }
 
@@ -75,37 +68,56 @@ function timer(event, index) {
     userInfo[index].min = 60;
     userInfo[index].hour--;
   }
+  localStorage.setItem("userInfo",JSON.stringify(userInfo));
   event.innerText = `${userInfo[index].hour} : ${userInfo[index].min} : ${userInfo[index].second}`;
   isTodo();
   return;
 }
-
+let pomodoroStart = null;
+let pomodoroObj = {
+    workM: null,
+    workS: null,
+    breakM: null,
+    breakS: null,
+}; 
 function pomodoroTimer() {
   // taskName.innerText = 'START';
+
   m = 1;
-  s = 61;
-  function decM() {
-    if (m < 1) {
-      m = 5;
-      taskName.innerText = 'TAKE BREAK!';
+  s = 60;
+  decM();
+  pomodoroStart = setInterval(decS, 1000);
+}
+function decM() {
+if (m < 1) {
+    m = 1;
+    taskName.innerText = 'TAKE BREAK!';
     }
     m--;
     min.innerText = m < 10 ? '0' + m : m;
-  }
-  function decS() {
-    if (s < 1) {
-      s = 60;
+    pomodoroObj.breakM = m;
+    pomodoroObj.breakS = s;
+    localStorage.setItem("pomodoroObj",JSON.stringify(pomodoroObj));
+    console.log(pomodoroObj);
+    console.log(m,s);
+}
+
+function decS() {
+    if (s <= 1) {
+        s = 60;
     }
     if (s == '01') {
-      decM();
+        decM();
     }
     s--;
     sec.innerText = s < 10 ? '0' + s : s;
-  }
-  decM();
-  setInterval(decS, 1000);
+    pomodoroObj.workM = m;
+    pomodoroObj.workS = s;
+    localStorage.setItem("pomodoroObj",JSON.stringify(pomodoroObj));
+    console.log(pomodoroObj);
+    console.log(m,s);
+    
 }
-
 setInterval(pomodoroTimer, 1800000);
 
 // creating ui dynamically
@@ -144,6 +156,15 @@ function createUi(arr) {
     li.addEventListener('click', function (event) {
       taskName.innerText = p1.innerText;
       if (event.target.classList.contains('fa-play-circle')) {
+        let liPlaying = document.querySelectorAll(".playing");
+        if (liPlaying){
+            [...liPlaying].forEach((e) => {
+                e.classList.remove("playing");
+                clearInterval(startTimer);
+                clearInterval(pomodoroStart);
+            }
+            )}
+        event.currentTarget.classList.add("playing");
         let index = [...ul.children].indexOf(li);
         userInfo[index].clicked += 1;
         if (userInfo[index].clicked % 2 != 0) {
@@ -159,6 +180,7 @@ function createUi(arr) {
           startInterval();
         } else {
           clearInterval(startTimer);
+          clearInterval(pomodoroStart);
         }
       }
     });
@@ -191,6 +213,7 @@ function clear(event) {
       if (userInfo[index].isDone) {
         element.children[0].remove();
         userInfo.splice(index, 1);
+        localStorage.setItem("userInfo",JSON.stringify(userInfo));
       }
     });
     createUi(userInfo);
@@ -200,9 +223,9 @@ function clear(event) {
 
 function isTodo() {
   control.innerHTML = '';
-  if (userInfo.every((e) => e.isDone)) {
+  if (userInfo.every((e) => e.isDone == true)) {
     clearButton();
-  }
+  } 
 }
 
 isTodo();

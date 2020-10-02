@@ -9,7 +9,7 @@ let m = 25;
 function main(val) {
   btn.style.display = 'none';
   function decM() {
-    if (m < 1) {
+    if (m < 25) {
       m = 5;
     }
     m--;

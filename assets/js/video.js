@@ -1,6 +1,7 @@
 let videoProgress = document.querySelector(".mp4");
 let start = 0;
 let duration = 0;
+
 // Set video element to variable
 // var video = document.getElementById('player1'
 // var videoStartTime = 0;
@@ -12,9 +13,12 @@ let duration = 0;
 // }, false);
 function handleVideo (event){
     videoDuration = event.target.duration;
-    pertaskDuration = videoDuration / userInfo.length;
     console.log(videoDuration);
+    pertaskDuration = videoDuration / userInfo.length;
+    event.target.duration = pertaskDuration;
     console.log(userInfo.length);
     console.log(pertaskDuration);
+    console.log(event);
+    videoProgress.timeStamp = 10;
 }
 videoProgress.addEventListener('loadedmetadata', handleVideo);
