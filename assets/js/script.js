@@ -7,6 +7,7 @@ let taskTimer = document.querySelector('.tasktimer');
 let min = document.querySelector('.min');
 let sec = document.querySelector('.sec');
 let display = document.querySelector('.display');
+let videoProgress = document.querySelector("video");
 
 let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
 let pomodoroStart = null;
@@ -58,7 +59,7 @@ function deleteHandle(event) {
 let startTimer = null;
 
 function timer(event, index) {
-  console.log(event,index,"from timer");
+  // console.log(event,index,"from timer");
   if (
     userInfo[index].hour == 0 &&
     userInfo[index].min == 0 &&
@@ -96,7 +97,7 @@ function pomodoroTimer(index) {
     } else {
         m = 25;
     }
-  s = 60;
+  s = 61;
   decM();
   pomodoroStart = setInterval(decS, 1000);
 }
@@ -133,6 +134,7 @@ setInterval(pomodoroTimer, 1800000);
 // creating ui dynamically
 
 function createUi(arr) {
+  if(userInfo.length > 3) alert("OOPS ! YOU CAN ENTER MAXIMUM 4-TASK.");
   if (userInfo.length > 4) return;
   ul.innerHTML = '';
   arr.forEach((element, index) => {
@@ -179,6 +181,7 @@ function createUi(arr) {
         let index = [...ul.children].indexOf(li);
         userInfo[index].clicked += 1;
         if (userInfo[index].clicked % 2 != 0) {
+          pomodoroTimer(index);
           function startInterval() {
             startTimer = setInterval(function () {
               timer(
@@ -188,7 +191,6 @@ function createUi(arr) {
             }, 1000);
           }
           startInterval();
-          pomodoroTimer(index);
         } else {
           clearInterval(startTimer);
           clearInterval(pomodoroStart);
@@ -241,6 +243,7 @@ function clear(event) {
 function isTodo() {
   control.innerHTML = '';
   if (userInfo.every((e) => e.isDone == true)) {
+    videoProgress.play();
     clearButton();
   }
 }
