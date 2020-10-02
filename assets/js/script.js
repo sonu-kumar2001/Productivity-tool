@@ -2,8 +2,21 @@ let todo = document.querySelector('.toDo');
 let form = document.querySelector('form');
 let ul = document.querySelector('.list-item');
 let root = document.querySelector('.root');
+let taskName = document.querySelector('.taskname');
+let taskTimer = document.querySelector('.tasktimer');
+let min = document.querySelector('.min');
+let sec = document.querySelector('.sec');
+let display = document.querySelector('.display');
+console.log(display);
 let userInfo = [
-  { hour: 0, isDone: false, min: 0, name: 'Sonu', second: 10, clicked: 0 },
+  {
+    hour: 01,
+    isDone: false,
+    min: 00,
+    name: 'JavaScript',
+    second: 00,
+    clicked: 0,
+  },
 ];
 
 function inputHandler(event) {
@@ -55,6 +68,7 @@ function timer(event, index) {
   } else if (userInfo[index].second != 0) {
     userInfo[index].second--;
   } else if (userInfo[index].min != 0 && userInfo[index].second == 0) {
+    // pomodoroTimer();
     userInfo[index].second = 59;
     userInfo[index].min--;
   } else if (userInfo[index].hour != 0 && userInfo[index].min == 0) {
@@ -65,6 +79,34 @@ function timer(event, index) {
   isTodo();
   return;
 }
+
+function pomodoroTimer() {
+  // taskName.innerText = 'START';
+  m = 1;
+  s = 61;
+  function decM() {
+    if (m < 1) {
+      m = 5;
+      taskName.innerText = 'TAKE BREAK!';
+    }
+    m--;
+    min.innerText = m < 10 ? '0' + m : m;
+  }
+  function decS() {
+    if (s < 1) {
+      s = 60;
+    }
+    if (s == '01') {
+      decM();
+    }
+    s--;
+    sec.innerText = s < 10 ? '0' + s : s;
+  }
+  decM();
+  setInterval(decS, 1000);
+}
+
+setInterval(pomodoroTimer, 1800000);
 
 // creating ui dynamically
 
@@ -100,10 +142,12 @@ function createUi(arr) {
     root.append(ul);
     // adding event listener on play button
     li.addEventListener('click', function (event) {
+      taskName.innerText = p1.innerText;
       if (event.target.classList.contains('fa-play-circle')) {
         let index = [...ul.children].indexOf(li);
         userInfo[index].clicked += 1;
         if (userInfo[index].clicked % 2 != 0) {
+          pomodoroTimer();
           function startInterval() {
             startTimer = setInterval(function () {
               timer(

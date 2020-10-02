@@ -1,81 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productivity</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:ital,wght@0,100;0,200;0,600;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/stylesheets/main.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:ital,wght@0,100;0,200;0,600;0,800;0,900;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/stylesheets/main.css" />
+  </head>
+  <body>
     <header class="flex-between">
-        <a href="" class="logo">
-            <img src="assets/images/logo.png" alt="logo" class="logo-img">
-        </a>
-        <nav>
-            <ul>
-                <a href="">HOME</a>
-                <a href="">PERFORMANCE</a>
-                <a href="">SETTING</a>
-            </ul>
-        </nav>
+      <a href="" class="logo">
+        <img src="assets/images/logo.png" alt="logo" class="logo-img" />
+      </a>
+      <nav>
+        <ul>
+          <a href="">HOME</a>
+          <a href="">PERFORMANCE</a>
+          <a href="">SETTING</a>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section class="home">
-            <div class="container  flex-between">
-                    <div class="tree">
-                        <video src="assets/video/tree.mp4" autoplay class="mp4" loop>
-                        </video>
-                        <div class="ground"></div>
-                    </div>
-                    <div class="quote">
-                        <h2 class="quote-text">
-                            “Productivity is being able to do things that you were never able to do before.”
-                        </h2>
-                    </div>
-                    <div class="toDo">
-                        <h2 class="todo-heading"> To Do List</h2>
-                        <form>
-                            <input 
-                            type="text" 
-                            name="name"
-                            placeholder="Task Name">
-        
-                            <input 
-                            type="number"
-                            name="hour"
-                            min="0"
-                            max="24"
-                            placeholder="Time in Hour" >
-        
-                            <input 
-                            type="number"
-                            name="min"
-                            min="0"
-                            max="60"
-                            placeholder="Time in Mins">
-
-                            <input type="number" name="second" >
-                            <button type="submit"></button>
-                        </form>
-                        <div class="root">
-                            <ul class="list-item">
-
-                            </ul>
-                        </div>
-                        <div class="controls">
-                            <!-- <button>Clear Completed</button> -->
-                        </div>
-                    </div>
+      <section class="home">
+        <div class="container flex-between">
+          <div class="tree">
+            <video
+              src="assets/video/tree.mp4"
+              autoplay
+              class="mp4"
+              loop
+            ></video>
+            <div class="ground"></div>
+          </div>
+          <div class="quote">
+            <h2 class="quote-text">
+              “Productivity is being able to do things that you were never able
+              to do before.”
+            </h2>
+          </div>
+          <div class="toDo">
+            <div class="flex-item display">
+              <h2 class="taskname">READY!</h2>
+              <h2 class="tasktimer">
+                <span class="min">00</span> : <span class="sec">00</span>
+              </h2>
             </div>
-        </section>
+            <form>
+              <input type="text" name="name" placeholder="Task Name" />
+
+              <input
+                type="number"
+                name="hour"
+                min="0"
+                max="24"
+                placeholder="Time in Hour"
+              />
+
+              <input
+                type="number"
+                name="min"
+                min="0"
+                max="60"
+                placeholder="Time in Mins"
+              />
+
+              <input type="number" name="second" />
+              <button type="submit"></button>
+            </form>
+            <div class="root">
+              <ul class="list-item"></ul>
+            </div>
+            <div class="controls">
+              <!-- <button>Clear Completed</button> -->
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="assets/js/quote.js"></script>
     <!-- <script src="assets/js/video.js"></script> -->
     <!-- <script src="assets/js/timer.js"></script> -->
 
     <script src="assets/js/script.js"></script>
-    
-    <script src="https://kit.fontawesome.com/e844dd4312.js" crossorigin="anonymous"></script>
-</body>
+
+    <script
+      src="https://kit.fontawesome.com/e844dd4312.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
