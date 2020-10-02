@@ -16,7 +16,6 @@ let pomodoroObj = {
     breakM: null,
     breakS: null,
 };
-
 function inputHandler(event) {
   event.preventDefault();
   if (
@@ -44,10 +43,14 @@ function inputHandler(event) {
 // on click deleting the
 
 function deleteHandle(event) {
-  let id = event.target.dataset.id;
-  userInfo.splice(id, 1);
-  localStorage.setItem("userInfo",JSON.stringify(userInfo));
-  createUi(userInfo);
+    let id = event.target.dataset.id;
+    userInfo.splice(id, 1);
+    localStorage.setItem("userInfo",JSON.stringify(userInfo));
+    createUi(userInfo);
+    min.innerText = "00";
+    sec.innerText = "00";
+    taskName.innerText = `READY!`;
+    clearInterval(pomodoroStart);
 }
 
 // timer
@@ -66,8 +69,8 @@ function timer(event, index) {
     userInfo[index].second = 0;
     userInfo[index].isDone = true;
     ul.children[index].style.backgroundColor = 'tomato';
-    min.innerText = 00;
-    sec.innerText = 00;
+    min.innerText = "00";
+    sec.innerText = "00";
     taskName.innerText = `READY!`;
     clearInterval(pomodoroStart);
     clearInterval(startTimer);
@@ -86,14 +89,18 @@ function timer(event, index) {
   isTodo();
   return;
 }
-function pomodoroTimer() {
-  // taskName.innerText = 'START';
-
-  m = 25;
+function pomodoroTimer(index) {
+    // taskName.innerText = userInfo[index].name;
+    if (userInfo[index].hour == 0 && userInfo[index].min <= 24) {
+        m = userInfo[index].min;
+    } else {
+        m = 25;
+    }
   s = 60;
   decM();
   pomodoroStart = setInterval(decS, 1000);
 }
+
 function decM() {
 if (m < 1) {
     m = 5;
@@ -157,8 +164,9 @@ function createUi(arr) {
     root.append(ul);
     // adding event listener on play button
     li.addEventListener('click', function (event) {
-      taskName.innerText = p1.innerText;
-      if (event.target.classList.contains('fa-play-circle')) {
+        if (event.target.classList.contains('fa-play-circle')) {
+        taskName.innerText = p1.innerText;
+        // pomodoroTimer( [...ul.children].indexOf(li));
         let liPlaying = document.querySelectorAll(".playing");
         if (liPlaying){
             [...liPlaying].forEach((e) => {
@@ -171,7 +179,6 @@ function createUi(arr) {
         let index = [...ul.children].indexOf(li);
         userInfo[index].clicked += 1;
         if (userInfo[index].clicked % 2 != 0) {
-          pomodoroTimer();
           function startInterval() {
             startTimer = setInterval(function () {
               timer(
@@ -181,9 +188,16 @@ function createUi(arr) {
             }, 1000);
           }
           startInterval();
+          pomodoroTimer(index);
         } else {
           clearInterval(startTimer);
           clearInterval(pomodoroStart);
+        }
+        if(userInfo.length == 0) {
+            min.innerText = "00";
+            sec.innerText = "00";
+            taskName.innerText = `READY!`;
+            clearInterval(pomodoroStart);
         }
       }
     });
@@ -196,9 +210,9 @@ createUi(userInfo);
 
 // working on button
 
-{
-  /* <button>Clear Completed</button> */
-}
+// {
+//   /* <button>Clear Completed</button> */
+// }
 
 let control = document.querySelector('.controls');
 
@@ -228,7 +242,7 @@ function isTodo() {
   control.innerHTML = '';
   if (userInfo.every((e) => e.isDone == true)) {
     clearButton();
-  } 
+  }
 }
 
 isTodo();

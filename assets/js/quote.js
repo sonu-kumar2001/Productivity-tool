@@ -87,7 +87,6 @@ let len = quoteArr.length;
 
 function doNext() {
     let randomIndex = Math.floor(Math.random()*len);
-    console.log(randomIndex);
     let entry = quoteArr[randomIndex];
     quote.textContent = (entry);
     setTimeout(doNext, 5000);
